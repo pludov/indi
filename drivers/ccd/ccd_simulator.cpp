@@ -545,7 +545,7 @@ int CCDSim::DrawCcdFrame(INDI::CCDChip * targetChip)
     else
         targetFocalLength = guiderFocalLength;
 
-    if (ShowStarField)
+    if (ShowStarField && GainN[0].value > 0)
     {
         float PEOffset {0};
         float decDrift {0};
