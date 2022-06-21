@@ -36,6 +36,10 @@ add_executable(TestIndiSetProp TestIndiSetProp.cpp ${TestCommonSources})
 target_link_libraries(TestIndiSetProp ${GTEST_BOTH_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 gtest_discover_tests(TestIndiSetProp PROPERTIES TIMEOUT 10)
 
+add_executable(TestSharedBlob TestSharedBlob.cpp ${TestCommonSources})
+target_link_libraries(TestSharedBlob indiclient ${GTEST_BOTH_LIBRARIES} ${ZLIB_LIBRARY} ${NOVA_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+gtest_discover_tests(TestSharedBlob PROPERTIES TIMEOUT 10)
+
 add_executable(TestIndiClient TestIndiClient.cpp ${TestCommonSources})
 target_link_libraries(TestIndiClient indiclient ${GTEST_BOTH_LIBRARIES} ${ZLIB_LIBRARY} ${NOVA_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 gtest_discover_tests(TestIndiClient PROPERTIES TIMEOUT 5)
