@@ -51,10 +51,14 @@ bool CCDChip::FitsFile::open(size_t size, int & status)
     return (status == 0);
 }
 
-bool CCDChip::FitsFile::close() {
+bool CCDChip::FitsFile::flush() {
     int status = 0;
     fits_close_file(m_FITSFilePointer, &status);
+    return (status == 0);
+}
 
+bool CCDChip::FitsFile::close() {
+    int status = 0;
     IDSharedBlobFree(m_FITSMemoryBlock);
     m_FITSMemoryBlock = nullptr;
     m_FITSMemorySize = 0;

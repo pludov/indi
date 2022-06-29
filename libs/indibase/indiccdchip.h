@@ -426,6 +426,8 @@ class CCDChip
                  */
                 bool open(size_t size, int &status);
 
+                bool flush();
+
                 /**
                  * @brief close Close the in-memory FITS File.
                  */
